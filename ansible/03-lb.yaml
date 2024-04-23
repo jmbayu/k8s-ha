@@ -82,7 +82,7 @@
                   auth_pass {{ PASSWORD_KEEPALIVED }}
               }
               virtual_ipaddress {
-                  172.16.16.100
+                  10.1.1.100
               }
               track_script {
                   check_apiserver
@@ -116,7 +116,7 @@
                   auth_pass {{ PASSWORD_KEEPALIVED }}
               }
               virtual_ipaddress {
-                  172.16.16.100
+                  10.1.1.100
               }
               track_script {
                   check_apiserver

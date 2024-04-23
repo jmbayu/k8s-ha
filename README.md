@@ -21,14 +21,14 @@ make cluster
 
 | Role          | Host Name      | IP            | OS                 | RAM   | CPU |
 |---------------|----------------|---------------|--------------------|-------|-----|
-| Load Balancer | loadbalancer1  | 172.16.16.51  | Debian Bookworm 12 | 512MB | 1   |
-| Load Balancer | loadbalancer1  | 172.16.16.52  | Debian Bookworm 12 | 512MB | 1   |
-| Control Plane | kcontrolplane1 | 172.16.16.101 | Debian Bookworm 12 | 2G    | 2   |
-| Control Plane | kcontrolplane2 | 172.16.16.102 | Debian Bookworm 12 | 2G    | 2   |
-| Control Plane | kcontrolplane3 | 172.16.16.103 | Debian Bookworm 12 | 2G    | 2   |
-| Worker        | kworker1       | 172.16.16.201 | Debian Bookworm 12 | 2G    | 2   |
-| Worker        | kworker2       | 172.16.16.202 | Debian Bookworm 12 | 2G    | 2   |
-| Worker        | kworker3       | 172.16.16.203 | Debian Bookworm 12 | 2G    | 2   |
+| Load Balancer | loadbalancer1  | 10.1.1.51  | Debian Bookworm 12 | 512MB | 1   |
+| Load Balancer | loadbalancer1  | 10.1.1.52  | Debian Bookworm 12 | 512MB | 1   |
+| Control Plane | kcontrolplane1 | 10.1.1.101 | Debian Bookworm 12 | 2G    | 2   |
+| Control Plane | kcontrolplane2 | 10.1.1.102 | Debian Bookworm 12 | 2G    | 2   |
+| Control Plane | kcontrolplane3 | 10.1.1.103 | Debian Bookworm 12 | 2G    | 2   |
+| Worker        | kworker1       | 10.1.1.201 | Debian Bookworm 12 | 2G    | 2   |
+| Worker        | kworker2       | 10.1.1.202 | Debian Bookworm 12 | 2G    | 2   |
+| Worker        | kworker3       | 10.1.1.203 | Debian Bookworm 12 | 2G    | 2   |
 
 Host Machine Requirements
 
@@ -109,14 +109,14 @@ up.
 
 ```sh
 {
-    ssh-keygen -f $HOME/.ssh/known_hosts -R 172.16.16.51
-    ssh-keygen -f $HOME/.ssh/known_hosts -R 172.16.16.52
-    ssh-keygen -f $HOME/.ssh/known_hosts -R 172.16.16.101
-    ssh-keygen -f $HOME/.ssh/known_hosts -R 172.16.16.102
-    ssh-keygen -f $HOME/.ssh/known_hosts -R 172.16.16.103
-    ssh-keygen -f $HOME/.ssh/known_hosts -R 172.16.16.201
-    ssh-keygen -f $HOME/.ssh/known_hosts -R 172.16.16.202
-    ssh-keygen -f $HOME/.ssh/known_hosts -R 172.16.16.203
+    ssh-keygen -f $HOME/.ssh/known_hosts -R 10.1.1.51
+    ssh-keygen -f $HOME/.ssh/known_hosts -R 10.1.1.52
+    ssh-keygen -f $HOME/.ssh/known_hosts -R 10.1.1.101
+    ssh-keygen -f $HOME/.ssh/known_hosts -R 10.1.1.102
+    ssh-keygen -f $HOME/.ssh/known_hosts -R 10.1.1.103
+    ssh-keygen -f $HOME/.ssh/known_hosts -R 10.1.1.201
+    ssh-keygen -f $HOME/.ssh/known_hosts -R 10.1.1.202
+    ssh-keygen -f $HOME/.ssh/known_hosts -R 10.1.1.203
 }
 ```
 
@@ -141,8 +141,8 @@ ansible-playbook -u root --key-file "vagrant" 07-k8s-config.yaml
 Once step 1 is completed, may ssh into each server with either commands
 
 ```sh
-ssh -i ./vagrant vagrant@172.16.16.101 # If you use the newly generated public-private key pair
-ssh kubeadmin@172.16.16.101            # If using existing ~/.ssh/id_rsa.pub key
+ssh -i ./vagrant vagrant@10.1.1.101 # If you use the newly generated public-private key pair
+ssh kubeadmin@10.1.1.101            # If using existing ~/.ssh/id_rsa.pub key
 ```
 
 If the step 5, initialization of k8s cluster fails, reset with this playbook and re-run 

@@ -21,14 +21,14 @@ cluster: clear-ssh
 
 # Reset remembering ssh keys
 clear-ssh:
-	ssh-keygen -f ~/.ssh/known_hosts -R 172.16.16.51 && \
-	ssh-keygen -f ~/.ssh/known_hosts -R 172.16.16.52 && \
-	ssh-keygen -f ~/.ssh/known_hosts -R 172.16.16.101 && \
-	ssh-keygen -f ~/.ssh/known_hosts -R 172.16.16.102 && \
-	ssh-keygen -f ~/.ssh/known_hosts -R 172.16.16.103 && \
-	ssh-keygen -f ~/.ssh/known_hosts -R 172.16.16.201 && \
-	ssh-keygen -f ~/.ssh/known_hosts -R 172.16.16.202 && \
-	ssh-keygen -f ~/.ssh/known_hosts -R 172.16.16.203
+	ssh-keygen -f ~/.ssh/known_hosts -R 10.1.1.51 && \
+	ssh-keygen -f ~/.ssh/known_hosts -R 10.1.1.52 && \
+	ssh-keygen -f ~/.ssh/known_hosts -R 10.1.1.101 && \
+	ssh-keygen -f ~/.ssh/known_hosts -R 10.1.1.102 && \
+	ssh-keygen -f ~/.ssh/known_hosts -R 10.1.1.103 && \
+	ssh-keygen -f ~/.ssh/known_hosts -R 10.1.1.201 && \
+	ssh-keygen -f ~/.ssh/known_hosts -R 10.1.1.202 && \
+	ssh-keygen -f ~/.ssh/known_hosts -R 10.1.1.203
 
 # Reset everything
 reset: clear-ssh
