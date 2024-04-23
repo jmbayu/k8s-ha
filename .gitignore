@@ -3,3 +3,4 @@
 .vagrant
 /ansible/vagrant
 /ansible/vagrant.pub
+ansible/id_ed25519.pub

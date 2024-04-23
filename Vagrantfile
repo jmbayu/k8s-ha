@@ -46,7 +46,7 @@ Vagrant.configure(2) do |config|
       lb.vm.hostname          = "loadbalancer#{i}.example.com"
       # lb.disksize.size        = DISK_LB_NODE
 
-      lb.vm.network "public_network", bridge: "virbr0", mac: "080021#{i}#{i}#{i}#{i}#{i}#{i}", type: "dhcp"
+      lb.vm.network "public_network", bridge: "bridge0", mac: "080021#{i}#{i}#{i}#{i}#{i}#{i}", type: "dhcp"
 
       ssh_pub_key = File.readlines("./ansible/vagrant.pub").first.strip
       config.vm.provision 'shell', inline: 'mkdir -p /root/.ssh'
@@ -78,7 +78,7 @@ Vagrant.configure(2) do |config|
       cpnode.vm.hostname          = "kcontrolplane#{i}.example.com"
       # cpnode.disksize.size        = DISK_CONTROL_PLANE_NODE
 
-      cpnode.vm.network "public_network", bridge: "virbr0", mac: "080023#{i}#{i}#{i}#{i}#{i}#{i}", type: "dhcp"
+      cpnode.vm.network "public_network", bridge: "bridge0", mac: "080023#{i}#{i}#{i}#{i}#{i}#{i}", type: "dhcp"
 
       ssh_pub_key = File.readlines("./ansible/vagrant.pub").first.strip
       config.vm.provision 'shell', inline: 'mkdir -p /root/.ssh'
@@ -111,7 +111,7 @@ Vagrant.configure(2) do |config|
       workernode.vm.hostname          = "kworker#{i}.example.com"
       # workernode.disksize.size        = DISK_WORKER_NODE
 
-      workernode.vm.network "public_network", bridge: "virbr0", mac: "080025#{i}#{i}#{i}#{i}#{i}#{i}", type: "dhcp"
+      workernode.vm.network "public_network", bridge: "bridge0", mac: "080025#{i}#{i}#{i}#{i}#{i}#{i}", type: "dhcp"
 
       ssh_pub_key = File.readlines("./ansible/vagrant.pub").first.strip
       config.vm.provision 'shell', inline: 'mkdir -p /root/.ssh'

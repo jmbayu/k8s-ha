@@ -13,7 +13,7 @@ install:
 
 # Provision Virtual Machines
 up:
-	vagrant up
+	VAGRANT_DEFAULT_PROVIDER=libvirt vagrant up
 
 # Create kubernetes cluster
 cluster: clear-ssh
@@ -32,8 +32,8 @@ clear-ssh:
 
 # Reset everything
 reset: clear-ssh
-	vagrant destroy -f
+	VAGRANT_DEFAULT_PROVIDER=libvirt vagrant destroy -f
 
 # Graceful shutdown of Virtual Machines
 halt:
-	vagrant halt
+	VAGRANT_DEFAULT_PROVIDER=libvirt vagrant halt
